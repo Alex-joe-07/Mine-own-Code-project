@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B-change-after-a-second</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #main-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 90vh;
+            border-radius: 10px;
+            border: 2px solid gray;
+            background-color: gray;
+            color: white;
+            margin: 50px;
+        }
+
+        #button-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        #button-container button {
+            width: 250px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: grey;
+            cursor: pointer;
+
+        }
+
+        #button-container button:hover {
+            background: #5c5353;
+            color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main-container">
+        <h1>Assalamu-alaiqum.</h1>
+        <div id="button-container">
+            <button id="start_button">Start</button>
+            <button id="stop_button">Stop</button>
+        </div>
+    </div>
+
+
+    <script>
+        const start_button = document.querySelector('#start_button')
+        const stop_button = document.querySelector('#stop_button')
+        const main_container = document.querySelector('#main-container')
+
+        let interval = null;
+
+
+
+        start_button.addEventListener("click", () => {
+            if (interval !== null) return;
+            interval = setInterval(() => {
+                const hex_values = "0123456789abcdef"
+                let color_generate = "#";
+
+                for (let i = 0; i < 6; i++) {
+                    let random_hex = Math.floor(Math.random() * hex_values.length)
+                    color_generate += hex_values[random_hex]
+
+                }
+
+              main_container.style.backgroundColor = color_generate;
+
+            }, 1000);
+
+        })
+
+        stop_button.addEventListener('click', () => {
+            clearInterval(interval)
+            interval = null;
+        })
+
+
+
+
+
+    </script>
+</body>
+
+</html>
