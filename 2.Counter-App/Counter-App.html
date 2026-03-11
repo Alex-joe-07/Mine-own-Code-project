@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App</title>
+</head>
+<body>
+    <input type="number"  id="Input_text_box" ><br><br>
+
+    <!-- if you want to disable input text use this below one text  -->
+    <!-- <input type="number"  id="Input_text_box" disabled><br><br> -->
+
+    <button id="increase">+</button>
+    <button id="decrease">-</button>
+    <button id="reset">reset</button>
+    <script>
+
+        const Input_text_box = document.querySelector("#Input_text_box")
+        const increase = document.querySelector("#increase")
+        const decrease = document.querySelector("#decrease")
+        const reset = document.querySelector("#reset")
+
+        let counter = 0 ;
+        
+
+        
+
+        function displayContent (){
+            Input_text_box.value = counter ;
+        }
+        
+
+        increase.addEventListener('click',()=>{
+            
+            // console.log(`number input se phele :${counter} `);
+            counter = Number(Input_text_box.value)
+            // console.log(`Number input ke baad :${counter}`);
+            counter++;
+            // console.log(`number increasement ke baad :${counter}`);
+            displayContent()
+            // console.log(`number display hone ke baad :${counter}`);
+            
+        })
+
+        decrease.addEventListener('click',()=>{
+            counter = Number(Input_text_box.value)
+            counter--;
+            displayContent()
+        })
+        reset.addEventListener('click',()=>{
+            counter = 0;
+            displayContent()
+        })
+
+
+
+    </script>
+</body>
+</html>
